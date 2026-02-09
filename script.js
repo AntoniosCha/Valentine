@@ -77,6 +77,9 @@ function showPlanQuestion() {
       <button id="planYes">Ja</button>
       <button id="planNo">Nein</button>
     </div>
+
+    <button id="continueBtn" class="continue">Weiter 💌</button>
+    <p class="hint">Oder klick auf Weiter 😉</p>
   `;
 
   document.getElementById("planNo").addEventListener("click", () => {
@@ -90,6 +93,13 @@ function showPlanQuestion() {
     card.innerHTML = `
       <h1>💖 Mein Plan 💖</h1>
       <p>(Hier kommt gleich deine Überraschung 😏)</p>
+    `;
+  });
+
+  document.getElementById("continueBtn").addEventListener("click", () => {
+    card.innerHTML = `
+      <h1>💘 Kleine Vorschau 💘</h1>
+      <p>Der Valentinstag wird besonders… nur für uns 🥰</p>
     `;
   });
 }
