@@ -4,7 +4,7 @@ const music = document.getElementById("bgMusic");
 let yesScale = 1;
 let musicStarted = false;
 
-// Musik beim ersten Klick starten
+// Musik beim ersten Klick starten (Browser-safe)
 function startMusic() {
   if (!musicStarted) {
     music.volume = 0.3;
@@ -19,7 +19,7 @@ document.addEventListener("click", startMusic, { once: true });
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 
-// NEIN wird kleiner, JA größer
+// NEIN → schrumpft, JA → wächst
 noBtn.addEventListener("click", () => {
   startMusic();
 
@@ -33,24 +33,29 @@ noBtn.addEventListener("click", () => {
   noBtn.style.transform = `scale(${noScale})`;
 });
 
-// JA gedrückt → erstes Fenster
+// JA gedrückt → Seite 2
 yesBtn.addEventListener("click", () => {
   startMusic();
 
   card.innerHTML = `
     <h1>Ich wusste, dass du JA sagen wirst ❤️</h1>
     <p>Du hast mir gerade den Valentinstag versüßt 🥰</p>
+
     <div class="buttons">
-      <button id="continueBtn" class="secondary">Weiter</button>
+      <button id="continueBtn" class="continue">Weiter 💌</button>
     </div>
+
+    <p class="hint">Klick auf „Weiter“ 💕</p>
   `;
 
   createHearts();
 
-  document.getElementById("continueBtn").addEventListener("click", showPlanQuestion);
+  document
+    .getElementById("continueBtn")
+    .addEventListener("click", showPlanQuestion);
 });
 
-// Herzen
+// Herzen-Animation
 function createHearts() {
   let count = 0;
   const interval = setInterval(() => {
@@ -70,11 +75,12 @@ function createHearts() {
   }, 150);
 }
 
-// Frage nach dem Plan
+// Seite 3 – Frage nach dem Plan
 function showPlanQuestion() {
   card.innerHTML = `
     <h1>Ich habe etwas für den Valentinstag geplant 💌</h1>
     <p>Möchtest du wissen was es ist?</p>
+
     <div class="buttons">
       <button id="planYes" class="secondary">Ja</button>
       <button id="planNo">Nein</button>
