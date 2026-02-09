@@ -1,25 +1,25 @@
-const yesBtn = document.getElementById("yesBtn");
-const noBtn = document.getElementById("noBtn");
 const card = document.getElementById("card");
 const music = document.getElementById("bgMusic");
 
 let yesScale = 1;
 let musicStarted = false;
 
-// Musik beim ERSTEN Klick starten (Browser-safe)
+// Musik beim ersten Klick starten
 function startMusic() {
   if (!musicStarted) {
     music.volume = 0.3;
     music.play().then(() => {
       musicStarted = true;
-    }).catch(() => {
-      // falls Browser meckert – egal
-    });
+    }).catch(() => {});
   }
 }
 
 document.addEventListener("click", startMusic, { once: true });
 
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+
+// NEIN wird kleiner, JA größer
 noBtn.addEventListener("click", () => {
   startMusic();
 
@@ -33,15 +33,26 @@ noBtn.addEventListener("click", () => {
   noBtn.style.transform = `scale(${noScale})`;
 });
 
+// JA gedrückt → erstes Fenster
 yesBtn.addEventListener("click", () => {
   startMusic();
 
   card.innerHTML = `
-    <h1>Ich wusste, dass du Ja sagst ❤️</h1>
+    <h1>Ich wusste, dass du JA sagen wirst ❤️</h1>
     <p>Du hast mir gerade den Valentinstag versüßt 🥰</p>
+    <div class="buttons">
+      <button id="continueBtn" class="secondary">Weiter</button>
+    </div>
   `;
 
-  let hearts = 0;
+  createHearts();
+
+  document.getElementById("continueBtn").addEventListener("click", showPlanQuestion);
+});
+
+// Herzen
+function createHearts() {
+  let count = 0;
   const interval = setInterval(() => {
     const heart = document.createElement("div");
     heart.textContent = "❤️";
@@ -54,7 +65,33 @@ yesBtn.addEventListener("click", () => {
 
     setTimeout(() => heart.remove(), 4000);
 
-    hearts++;
-    if (hearts >= 25) clearInterval(interval);
+    count++;
+    if (count >= 25) clearInterval(interval);
   }, 150);
-});
+}
+
+// Frage nach dem Plan
+function showPlanQuestion() {
+  card.innerHTML = `
+    <h1>Ich habe etwas für den Valentinstag geplant 💌</h1>
+    <p>Möchtest du wissen was es ist?</p>
+    <div class="buttons">
+      <button id="planYes" class="secondary">Ja</button>
+      <button id="planNo">Nein</button>
+    </div>
+  `;
+
+  document.getElementById("planNo").addEventListener("click", () => {
+    card.innerHTML = `
+      <h1>Okay 😊</h1>
+      <p>Dann lass dich überraschen 😉</p>
+    `;
+  });
+
+  document.getElementById("planYes").addEventListener("click", () => {
+    card.innerHTML = `
+      <h1>💖 Mein Plan 💖</h1>
+      <p>(Hier kommt gleich deine Überraschung 😏)</p>
+    `;
+  });
+}
