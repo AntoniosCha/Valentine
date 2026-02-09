@@ -79,7 +79,6 @@ function showPlanQuestion() {
     </div>
 
     <button id="continueBtn" class="continue">Weiter 💌</button>
-    <p class="hint">Oder klick auf Weiter 😉</p>
   `;
 
   document.getElementById("planNo").addEventListener("click", () => {
@@ -102,4 +101,5 @@ function showPlanQuestion() {
       <p>Der Valentinstag wird besonders… nur für uns 🥰</p>
     `;
   });
+
 }
