@@ -56,17 +56,14 @@ button:hover {
   background-color: #ccc;
 }
 
-.secondary {
-  background-color: #ffb3c1;
-  color: white;
-}
-
+/* 🔴 WICHTIG: Weiter-Button sichtbar machen */
 .continue {
   background-color: #ff4d6d;
   color: white;
   font-size: 20px;
   padding: 14px 32px;
-  margin-top: 20px;
+  margin: 30px auto 0;
+  display: block;
 }
 
 .hint {
