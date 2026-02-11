@@ -11,12 +11,12 @@ body {
 
 .card {
   background: white;
-  padding: 60px 80px;
-  border-radius: 30px;
+  padding: 80px 120px;
+  border-radius: 40px;
   text-align: center;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.2);
-  max-width: 1400px;
-  width: 95%;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+  max-width: 2200px;   /* riesig */
+  width: 98%;
 }
 
 h1 {
@@ -84,18 +84,18 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 80px; 
-  margin-top: 40px;
-  flex-wrap: nowrap;     
+  gap: 150px;        /* viel Abstand */
+  margin-top: 60px;
+  flex-wrap: nowrap; /* kein Umbruch */
 }
 
 .plan-container img {
-  width: 500px;           
-  height: 350px;
-  object-fit: cover;      
-  border-radius: 25px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease;
+  width: 1000px;     /* 3x größer als vorher */
+  height: 650px;
+  object-fit: cover;
+  border-radius: 35px;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.3);
+  transition: transform 0.4s ease;
 }
 
 .plan-container img:hover {

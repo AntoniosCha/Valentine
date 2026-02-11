@@ -100,5 +100,20 @@ function showPlan() {
       Zuerst werden wir kreativ und bemalen unsere eigene Tonschale
       und danach entspannen wir bei einem guten italienischen Essen.
     </p>
+
+    <button id="finalBtn" class="continue">Weiter 💌</button>
   `;
+
+  document
+    .getElementById("finalBtn")
+    .addEventListener("click", showFinalPage);
+}
+
+function showFinalPage() {
+  card.innerHTML = `
+    <h1>❤️</h1>
+    <h1>Ich freue mich sehr auf unseren Tag<br>und kann es kaum erwarten</h1>
+  `;
+
+  createHearts();
 }
