@@ -37,9 +37,7 @@ yesBtn.addEventListener("click", () => {
   card.innerHTML = `
     <h1>Ich wusste, dass du JA sagst ❤️</h1>
     <p>Du hast mir gerade den Valentinstag versüßt 🥰</p>
-
     <button id="continueBtn" class="continue">Weiter 💌</button>
-    <p class="hint">Klick auf „Weiter“ 💕</p>
   `;
 
   createHearts();
@@ -77,8 +75,6 @@ function showPlanQuestion() {
       <button id="planYes">Ja</button>
       <button id="planNo">Nein</button>
     </div>
-
-    <button id="continueBtn" class="continue">Weiter 💌</button>
   `;
 
   document.getElementById("planNo").addEventListener("click", () => {
@@ -88,18 +84,21 @@ function showPlanQuestion() {
     `;
   });
 
-  document.getElementById("planYes").addEventListener("click", () => {
-    card.innerHTML = `
-      <h1>💖 Mein Plan 💖</h1>
-      <p>(Hier kommt gleich deine Überraschung 😏)</p>
-    `;
-  });
+  document.getElementById("planYes").addEventListener("click", showPlan);
+}
 
-  document.getElementById("continueBtn").addEventListener("click", () => {
-    card.innerHTML = `
-      <h1>💘 Kleine Vorschau 💘</h1>
-      <p>Der Valentinstag wird besonders… nur für uns 🥰</p>
-    `;
-  });
+function showPlan() {
+  card.innerHTML = `
+    <h1>💖 Unser Plan 💖</h1>
 
+    <div class="plan-container">
+      <img src="picture/tonschalen_malen_bild.jpg" alt="Tonschale bemalen">
+      <img src="picture/restaurant_bild.jpg" alt="Italienisches Essen">
+    </div>
+
+    <p class="plan-text">
+      Zuerst werden wir kreativ und bemalen unsere eigene Tonschale
+      und danach entspannen wir bei einem guten italienischen Essen.
+    </p>
+  `;
 }
