@@ -79,18 +79,17 @@ button:hover {
   }
 }
 
-.plan-container {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 20px;
-  flex-wrap: wrap;
+.plan-container img {
+  width: 300px;        /* deutlich größer */
+  max-width: 90%;      /* mobile friendly */
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
 }
 
-.plan-container img {
-  width: 150px;
-  border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+
+.plan-container img:hover {
+  transform: scale(1.05);
 }
 
 .plan-text {
